@@ -28,12 +28,15 @@
     function showBrochure(){
         var thousand =0,hundred=0,taka=0;
 
+    //for show hide
         document.querySelector('#product_list').style.display='none';
         document.querySelector('#product_brochure').style.display='block';
 
-
+    //total ammount
         var tk = parseInt(document.getElementById("total").innerHTML,10);
 
+
+    //for show in word taka
         if(tk>0 && tk<100){
             taka = tk;
             thousand = '',
@@ -76,11 +79,12 @@
         if(hundred)
             hundred= hundred+'hundred';
 
-        //for show in word taka
         document.querySelector('#totaltk').innerHTML = tk;
         document.querySelector('#thousand').innerHTML = thousand;
         document.querySelector('#hundred').innerHTML = hundred;
         document.querySelector('#taka').innerHTML = taka;
+
+
         //for show date
         document.querySelector('#date').innerHTML = Date();
         
