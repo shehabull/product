@@ -25,6 +25,22 @@
 
 
     function showBrochure(){
+
         document.querySelector('#product_list').style.display='none';
         document.querySelector('#product_brochure').style.display='block';
+
+
+        var totaltk = parseInt(document.getElementById("total").innerHTML,10);
+
+        document.querySelector('#totaltk').innerHTML = totaltk;
+
+        document.querySelector('#date').innerHTML = Date();
+        
+
+
+
+        
+
+
+
     }

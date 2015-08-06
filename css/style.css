@@ -1,3 +1,6 @@
 #product_brochure{
 	display: none;
 }
+#totaltk{
+	display: inline !important;
+}
