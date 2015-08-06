@@ -1,3 +1,4 @@
+    
     var totalPrice = 0;
     function savedata () {
         var name = document.querySelector('#name').value;
@@ -25,22 +26,64 @@
 
 
     function showBrochure(){
+        var thousand =0,hundred=0,taka=0;
 
         document.querySelector('#product_list').style.display='none';
         document.querySelector('#product_brochure').style.display='block';
 
 
-        var totaltk = parseInt(document.getElementById("total").innerHTML,10);
+        var tk = parseInt(document.getElementById("total").innerHTML,10);
 
-        document.querySelector('#totaltk').innerHTML = totaltk;
+        if(tk>0 && tk<100){
+            taka = tk;
+            thousand = '',
+            hundred='';
+        }
+        else if(tk>99 && tk<1000){
+            hundred=parseInt(tk/100,10);
+            if(tk%100){
+              taka = totaltk-(100 * hundred);  
+            }
+            else{
+               taka = ''; 
+            }      
+            thousand = '';
+        }
+        else if(tk>999 && tk<100000){
+            thousand = parseInt(tk/1000,10);
 
+            if(tk%1000){
+              taka = totaltk-(100 * hundred);
+              hundred= parseInt((tk-(1000 * thousand))/100,10);
+              if(tk%100){
+                    taka = totaltk-(100 * hundred);  
+                }
+                else{
+                   taka = ''; 
+                }  
+            }
+            else{
+               hundred = ''; 
+               taka = ''; 
+            } 
+        }
+        else{
+
+        }
+
+        if(thousand)
+            thousand= thousand+'thousand';
+        if(hundred)
+            hundred= hundred+'hundred';
+
+        //for show in word taka
+        document.querySelector('#totaltk').innerHTML = tk;
+        document.querySelector('#thousand').innerHTML = thousand;
+        document.querySelector('#hundred').innerHTML = hundred;
+        document.querySelector('#taka').innerHTML = taka;
+        //for show date
         document.querySelector('#date').innerHTML = Date();
         
-
-
-
-        
-
 
 
     }
